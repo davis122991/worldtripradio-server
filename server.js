@@ -10,7 +10,12 @@ const app = express();
 const port = parseInt(process.env.PORT) || 4000;
 
 app.use(express.json());
-app.use(cors({ origin: '*' }));
+app.use(
+  cors({
+    origin: 'https://tripping-world-radio.vercel.app/',
+    credentials: true,
+  })
+);
 
 app.use('/api/notify', landingRouter);
 
