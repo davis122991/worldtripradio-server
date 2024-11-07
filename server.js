@@ -4,6 +4,7 @@ import cors from 'cors';
 import 'dotenv/config';
 
 import landingRouter from './routes/landingRoutes.js';
+import testRouter from './routes/testRoutes.js';
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(
 );
 
 app.use('/api/notify', landingRouter);
+app.use('/', testRouter);
 
 mongoose.connect(process.env.MONGO_URI).then(() => {
   console.log('Connected to MongoDB');
